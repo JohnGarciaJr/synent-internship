@@ -1,37 +1,54 @@
 # Synent Technologies — Python Development Internship
 
 ## 📌 Overview
-This repository contains all tasks, projects, and documentation completed during the **Synent Technologies Python Development Internship**, part of the AICTE/MSME Fellowship Program.  
-Work is organized into modular task folders, each containing clean Python code, structured READMEs, and supporting artifacts.
-
-The internship focuses on strengthening practical Python skills through hands‑on projects in scripting, automation, data handling, and application development.
+This repository contains all tasks, projects, and documentation completed during the Synent Technologies Python Development Internship, part of the AICTE/MSME Fellowship Program.
+Each task is organized into its own modular folder with clean Python code, structured READMEs, and supporting artifacts.
 
 ---
 
 ## 📁 Repository Structure
 ```
-synent_internship/
+synent-internship/
 │
-├── task-1/
-│   ├── README.md
-│   └── src/
+├── synent-task6-weatherapp-johnhenrygarciajr/
+│   ├── src/
+│   │   └── weather.py
+│   └── README.md
 │
-├── task-2/
-│   ├── README.md
-│   └── src/
+├── synent-task8-webscraper-johnhenrygarciajr/
+│   ├── src/
+│   │   └── scraper.py
+│   └── README.md
 │
-├── task-3/
-│   ├── README.md
-│   └── src/
+├── synent-task9-taskmanager-johnhenrygarciajr/
+│   ├── static/
+│   │   └── style.css
+│   ├── templates/
+│   │   ├── 403.html
+│   │   ├── 404.html
+│   │   ├── 500.html
+│   │   ├── add_task.html
+│   │   ├── base.html
+│   │   ├── dashboard.html
+│   │   ├── edit_task.html
+│   │   ├── login.html
+│   │   └── register.html
+│   ├── app.py
+│   ├── database.db
+│   ├── models.py
+│   ├── schema.sql
+│   └── README.md
 │
-└── README.md   ← (You are here)
+├── .gitignore
+├── LICENSE
+└── README.md   ← (this file)
 ```
+---
 
-Each task folder includes:
-
-- **README.md** — documentation, requirements, approach, and output  
-- **src/** — Python scripts and modules  
-- **screenshots/** (if needed)
+## 🧩 What Each Task Folder Includes
+- README.md — documentation, requirements, approach, and output
+- src/ — Python scripts and modules
+- static/ & templates/ (for web‑based tasks)
 
 ---
 
@@ -49,10 +66,11 @@ Each task folder includes:
 
 ## 🛠️ Tech Stack
 
-- **Python 3.x**  
-- VS Code  
-- Git & GitHub  
-- Requests, BeautifulSoup, Pandas (as needed per task)  
+- Python 3.x
+- VS Code
+- Git & GitHub
+- Requests, BeautifulSoup, Pandas (as needed)
+- Flask (for Task 9)
 - Virtual environments for isolated development  
 
 ---
@@ -61,7 +79,7 @@ Each task folder includes:
 
 - Completed Python tasks (Basic, Intermediate, Advanced)  
 - Documented project READMEs  
-- Screenshots and evidence of execution  
+- Video evidence of execution  
 - Final submission package for Synent Technologies  
 
 ---
