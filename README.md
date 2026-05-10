@@ -89,4 +89,6 @@ synent-internship/
 This repository will be updated daily as tasks are completed.  
 Each task folder includes its own documentation and execution notes.
 
+Reach me here: jhgarci4@asu.edu
+
 ---
