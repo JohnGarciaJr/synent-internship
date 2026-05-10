@@ -43,15 +43,24 @@
 
         <tbody>
             {% for task in tasks %}
-            <tr class="{% if task.completed %}table-success{% endif %}">
+            <tr class="
+                {% if task.completed %}
+                    table-success
+                {% elif task.due_date and task.due_date < current_date %}
+                    table-danger
+                {% endif %}
+            ">
+                <!-- TITLE -->
                 <td class="{% if task.completed %}text-decoration-line-through text-muted{% endif %}">
                     {{ task.title }}
                 </td>
 
+                <!-- DESCRIPTION -->
                 <td class="{% if task.completed %}text-decoration-line-through text-muted{% endif %}">
                     {{ task.description }}
                 </td>
 
+                <!-- PRIORITY -->
                 <td>
                     {% if task.priority == "High" %}
                         <span class="badge bg-danger">High</span>
@@ -62,6 +71,7 @@
                     {% endif %}
                 </td>
 
+                <!-- DUE DATE -->
                 <td>
                     {% if task.due_date %}
                         {% if not task.completed and task.due_date < current_date %}
@@ -74,6 +84,7 @@
                     {% endif %}
                 </td>
 
+                <!-- STATUS -->
                 <td>
                     {% if task.completed %}
                         <span class="badge bg-success">Completed</span>
@@ -82,6 +93,7 @@
                     {% endif %}
                 </td>
 
+                <!-- ACTIONS -->
                 <td>
                     {% if not task.completed %}
                         <a href="{{ url_for('complete_task', task_id=task.id) }}" 

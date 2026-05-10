@@ -168,7 +168,7 @@ def add_task():
         cur = conn.cursor()
 
         cur.execute(
-            "INSERT INTO tasks (user_id, title, description, priority, due_date) VALUES (?, ?, ?, ?, ?)",
+            "INSERT INTO tasks (user_id, title, description, priority, due_date, completed) VALUES (?, ?, ?, ?, ?, 0)",
             (session["user_id"], title, description, priority, due_date)
         )
         conn.commit()
@@ -184,6 +184,7 @@ def add_task():
 # EDIT TASK
 # -------------------------
 @app.route("/edit/<int:task_id>", methods=["GET", "POST"])
+@limiter.limit("20 per minute")
 def edit_task(task_id):
     if "user_id" not in session:
         return redirect(url_for("login"))
@@ -223,6 +224,7 @@ def edit_task(task_id):
 # DELETE TASK
 # -------------------------
 @app.route("/delete/<int:task_id>", methods=["GET", "POST"])
+@limiter.limit("20 per minute")
 def delete_task(task_id):
     if "user_id" not in session:
         return redirect(url_for("login"))
@@ -242,6 +244,7 @@ def delete_task(task_id):
 # MARK TASK AS COMPLETE
 # -------------------------
 @app.route("/complete/<int:task_id>", methods=["GET", "POST"])
+@limiter.limit("20 per minute")
 def complete_task(task_id):
     if "user_id" not in session:
         return redirect(url_for("login"))
@@ -255,6 +258,28 @@ def complete_task(task_id):
     conn.close()
 
     return redirect(url_for("dashboard"))
+
+
+# -------------------------
+# CUSTOM 404 PAGE
+# -------------------------
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+# -------------------------
+# CUSTOM 500 PAGE
+# -------------------------
+@app.errorhandler(500)
+def internal_error(e):
+    return render_template("500.html"), 500
+
+# -------------------------
+# CUSTOM 403 PAGE
+# -------------------------
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template("403.html"), 403
 
 
 # -------------------------
